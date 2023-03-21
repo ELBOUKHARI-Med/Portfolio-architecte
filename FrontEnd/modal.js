@@ -1,50 +1,49 @@
-
+// Cette fonction affiche la modal en changeant la propriété display de la div qui la contient en "block"
 function displayModal() {
   const ModalContainer = document.getElementById('modal-container');
   ModalContainer.style.display = 'block';
-
-
 }
+
+// On sélectionne le bouton qui ouvre la modal et on lui ajoute un écouteur d'événements qui va appeler la fonction displayModal()
 const modalBtn2 = document.querySelector('#btn-modal2');
 modalBtn2.addEventListener('click', displayModal);
 
-// close modal1
 
+// On sélectionne les éléments qui servent à fermer la modal
 const closeModalButton = document.querySelector('.close-modal');
 const modal = document.querySelector('.modal-container');
 const overlay = document.querySelector('.overlay-modal');
 
 
-
+// Cette fonction ferme la modal en changeant la propriété display de la div qui la contient en "none"
 function closeModal() {
-  console.log('closeModal()');
-  modal.style.display = 'none';
 
+  modal.style.display = 'none';
 }
 
+// Cette fonction est appelée lorsqu'on clique à l'extérieur de la modal. Si l'élément cliqué est l'overlay, on ferme la modal
 function outsideClick(event) {
-  console.log('outsideClick()');
+
   if (event.target === overlay) {
     closeModal();
   }
 }
 
 
-
-
+// Ajout d'un écouteur d'événement au bouton de fermeture
 closeModalButton.addEventListener('click', closeModal);
+// Ajout d'un écouteur d'événement pour la touche "Escape" pour fermer la modale
 document.addEventListener('keydown', function (event) {
   if (event.key === 'Escape') {
     closeModal();
   }
 });
-
+// Ajout d'un écouteur d'événement pour cliquer en dehors de la modale pour la fermer
 window.addEventListener('click', outsideClick);
 overlay.addEventListener('click', outsideClick);
 
 
 // Récupération des éléments nécessaires
-
 const closeButton = document.querySelector('.fa-xmark');
 const returnBtn = document.querySelector('.fa-arrow-left');
 const openButton = document.querySelector('.btn-add-photo');
@@ -59,7 +58,7 @@ function openModalAdd() {
 
   ];
   cacherElements(elementsACacher);
-console.log('openModalAdd');
+
 }
 
 // Fonction pour fermer la modale
@@ -77,7 +76,7 @@ function closeModalAdd() {
 function modalReturn() {
   const modalAjout = document.querySelector('.modale');
   modalAjout.style.display = 'none';
-modal.style.display = 'block';
+  modal.style.display = 'block';
 }
 // Gestionnaire d'événement pour ouvrir la modale
 openButton.addEventListener('click', openModalAdd);
@@ -162,40 +161,48 @@ photoInput.addEventListener('change', () => {
 
 
 
-
+// Sélectionne le bouton de publication
 const publishButton = document.querySelector('#publish');
-
+// Ajoute un événement de clic sur le bouton de publication qui appelle la fonction handleAddProject
 publishButton.addEventListener('click', handleAddProject);
 
 
-
+// Sélectionne le formulaire
 const form = document.querySelector('form');
+// Crée un nouvel objet FormData pour stocker les données du formulaire
 const formData = new FormData();
+// Ajoute un événement de soumission sur le formulaire
 form.addEventListener('submit', (e) => {
-  e.preventDefault();
+  e.preventDefault();// Empêche la soumission par défaut du formulaire
+  // Sélectionne l'input de type texte et récupère sa valeur
   const input = document.querySelector('input[type="text"]');
   const inputTitle = input.value.trim();
+  // Sélectionne le champ de catégorie de la photo et le champ de fichier photo et récupère leur valeur
   const inputCategory = document.querySelector('#photo-category');
   const inputFile = document.querySelector('#photo');
+  // Vérifie que tous les champs obligatoires ont été remplis
   if (!inputTitle || !inputCategory) {
     alert('Veuillez remplir tous les champs du formulaire.');
   } else {
-    
+    // Si tous les champs ont été remplis, ajoute les données à l'objet FormData
     formData.append('image', inputFile.files[0]);
     formData.append('title', inputTitle);
-    console.log(inputCategory);
-    formData.append('category', getIdFromName(inputCategory.value));
-   
-    console.log(formData);
-    
-  window.addProject (formData.get('category'), URL.createObjectURL(formData.get('image')), Math.random(), formData.get('title'));
-  closeModalAdd ();
 
+    formData.append('category', getIdFromName(inputCategory.value));
+
+
+    // Appelle la fonction addProject en passant les données du formulaire en paramètres
+    window.addProject(formData.get('category'), URL.createObjectURL(formData.get('image')), Math.random(), formData.get('title'));
+    // Ferme la boîte de dialogue pour ajouter un projet
+    closeModalAdd();
   }
 });
 
+// Fonction pour gérer l'ajout d'un projet
 function handleAddProject() {
-  if (formData.get('image')!=null) {
+  // Vérifie que le champ de fichier photo a été rempli
+  if (formData.get('image') != null) {
+    // Crée un objet requestOptions pour configurer la requête fetch()
     const requestOptions = {
       method: 'POST',
       headers: {
@@ -203,17 +210,18 @@ function handleAddProject() {
       },
       body: formData
     };
-    console.log(formData);
-    // Envoi des données du formulaire à l'API avec fetch()
 
+    // Envoi des données du formulaire à l'API avec fetch()
     fetch(`http://localhost:5678/api/works`, requestOptions)
 
       .then(response => {
         if (response.ok) {
+          // Affiche une alerte si l'envoi a réussi et actualise la galerie de projets
           alert('Votre projet a été publié avec succès.');
           // Actualiser la galerie de projets
           window.location.reload();
         } else {
+          // Affiche une alerte si une erreur est survenue lors de l'envoi du formulaire
           alert('Une erreur est survenue lors de l\'envoi du formulaire.');
 
         }
@@ -222,6 +230,7 @@ function handleAddProject() {
       .catch(error => { console.log(response); alert(error.message) });
   }
 }
+// Tableau d'objets contenant les types de projets
 const typesBiens = [
   {
     "id": 1,
@@ -236,7 +245,7 @@ const typesBiens = [
     "name": "Hotels & restaurants"
   }
 ];
-
+// Fonction pour récupérer l'ID d'un type de bien immobilier à partir de son nom
 function getIdFromName(name) {
   for (let i = 0; i < typesBiens.length; i++) {
     if (typesBiens[i].name === name) {

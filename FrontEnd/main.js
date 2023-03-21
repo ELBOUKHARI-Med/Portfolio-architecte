@@ -1,5 +1,3 @@
-
-
 // Fonction pour cacher les éléments
 function cacherElements(elementsACacher) {
 
@@ -35,7 +33,7 @@ if (!token) {
   ];
 
   cacherElements(elementsACacher);
-  console.log(token);
+  
 }
 
 // Fonction pour gérer le bouton "logout"
@@ -49,10 +47,6 @@ function handleLogout() {
 // Ajouter un écouteur d'événement "click" au bouton "logout"
 const logoutButton = document.querySelector('#logout-btn');
 logoutButton.addEventListener('click', handleLogout);
-
-
-
-
 
 
 // Appel à l'API pour récupérer les projets de l'architecte	
@@ -93,26 +87,26 @@ fetch('http://localhost:5678/api/works')
 
     });
 
-    window.addProject = function (categoryname, imageUrl, id, title){
+    window.addProject = function (categoryname, imageUrl, id, title) {
       const figure = document.createElement('figure');
-          figure.setAttribute("data-filter", categoryname);
-          const img = document.createElement('img');
-          img.setAttribute('id', 'image-modal')
-          const figcaption = document.createElement('figcaption');
-    
-          // Ajout de la clé-valeur à la Map
-          imageIdMap.set(imageUrl, id);
-    
-    
-          img.src = imageUrl;
-    
-          img.alt = title;
-          figcaption.textContent = title;
-    
-    
-          figure.appendChild(img);
-          figure.appendChild(figcaption);
-          gallery.appendChild(figure);
+      figure.setAttribute("data-filter", categoryname);
+      const img = document.createElement('img');
+      img.setAttribute('id', 'image-modal')
+      const figcaption = document.createElement('figcaption');
+
+      // Ajout de la clé-valeur à la Map
+      imageIdMap.set(imageUrl, id);
+
+
+      img.src = imageUrl;
+
+      img.alt = title;
+      figcaption.textContent = title;
+
+
+      figure.appendChild(img);
+      figure.appendChild(figcaption);
+      gallery.appendChild(figure);
     }
 
 
@@ -178,8 +172,6 @@ fetch('http://localhost:5678/api/works')
 
       }
 
-
-
       // Fonction pour supprimer un projet en utilisant son identifiant
       function deleteProject(id) {
         // Envoie une requête de suppression au back-end pour supprimer le projet
@@ -214,63 +206,54 @@ fetch('http://localhost:5678/api/works')
     });
 
 
-
-
-
-
-
-
-
-
-
     // Définir les catégories
-const categories = ['Tous', 'Objets', 'Appartements', 'Hotels & restaurants'];
+    const categories = ['Tous', 'Objets', 'Appartements', 'Hotels & restaurants'];
 
-// Sélectionner l'élément parent pour les boutons
-const filtersContainer = document.getElementById('filtres');
+    // Sélectionner l'élément parent pour les boutons
+    const filtersContainer = document.getElementById('filtres');
 
-// Créer un bouton pour chaque catégorie
-categories.forEach(category => {
-  const button = document.createElement('button');
-  button.textContent = category;
-  filtersContainer.appendChild(button);
-});
-
-// Sélectionner toutes les figures dans la classe "gallery"
-const figures = document.querySelectorAll('.gallery figure');
-
-// Ajouter un écouteur d'événement "click" à chaque bouton
-filtersContainer.addEventListener('click', event => {
-  if (event.target.tagName === 'BUTTON') {
-    const filter = event.target.textContent;
-    // Ajouter la classe "selected" au bouton cliqué
-    filtersContainer.querySelectorAll('button').forEach(button => {
-      button.classList.remove('selected');
+    // Créer un bouton pour chaque catégorie
+    categories.forEach(category => {
+      const button = document.createElement('button');
+      button.textContent = category;
+      filtersContainer.appendChild(button);
     });
-    event.target.classList.add('selected');
 
-    // Boucle à travers chaque figure
-    figures.forEach(figure => {
-      // Récupère la valeur de l'attribut "data-filter" de l'image dans la figure
-      const figureFilter = figure.getAttribute('data-filter');
+    // Sélectionner toutes les figures dans la classe "gallery"
+    const figures = document.querySelectorAll('.gallery figure');
 
-      // Vérifie si le filtre actuel est "Tous"
-      if (filter === 'Tous') {
-        // Si c'est le cas, affiche toutes les figures
-        figure.style.display = 'block';
-      } else if (figureFilter !== filter) {
-        // Sinon, si le filtre de la figure ne correspond pas au filtre actuel, cache la figure
-        figure.style.display = 'none';
-      } else {
-        // Sinon, affiche la figure
-        figure.style.display = 'block';
+    // Ajouter un écouteur d'événement "click" à chaque bouton
+    filtersContainer.addEventListener('click', event => {
+      if (event.target.tagName === 'BUTTON') {
+        const filter = event.target.textContent;
+        // Ajouter la classe "selected" au bouton cliqué
+        filtersContainer.querySelectorAll('button').forEach(button => {
+          button.classList.remove('selected');
+        });
+        event.target.classList.add('selected');
+
+        // Boucle à travers chaque figure
+        figures.forEach(figure => {
+          // Récupère la valeur de l'attribut "data-filter" de l'image dans la figure
+          const figureFilter = figure.getAttribute('data-filter');
+
+          // Vérifie si le filtre actuel est "Tous"
+          if (filter === 'Tous') {
+            // Si c'est le cas, affiche toutes les figures
+            figure.style.display = 'block';
+          } else if (figureFilter !== filter) {
+            // Sinon, si le filtre de la figure ne correspond pas au filtre actuel, cache la figure
+            figure.style.display = 'none';
+          } else {
+            // Sinon, affiche la figure
+            figure.style.display = 'block';
+          }
+        });
       }
     });
-  }
-});
 
-// Ajouter la classe "selected" au bouton "Tous" par défaut
-filtersContainer.querySelector('button:first-child').classList.add('selected');
+    // Ajouter la classe "selected" au bouton "Tous" par défaut
+    filtersContainer.querySelector('button:first-child').classList.add('selected');
 
   });
 
