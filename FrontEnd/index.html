@@ -31,39 +31,40 @@
 
 
 	<div class="modale" id="modal2">
-        <div class="modal-content">
-            <div class="modal-header">
-                <i class="fa-solid fa-arrow-left"></i>
-                <i class="fa-solid fa-xmark"></i>
-            </div>
-            <div class="modal-body">
-                <div class="page-title">Ajout photo</div>
-                <form>
+		<div class="modal-content">
+			<div class="modal-header">
+				<i class="fa-solid fa-arrow-left"></i>
+				<i class="fa-solid fa-xmark"></i>
+			</div>
+			<div class="modal-body">
+				<div class="page-title">Ajout photo</div>
+				<form>
 					<div class="modal-image">
-						
+
 						<img id="modal-image" src="./assets/images/picture-svgrepo.png" alt="image">
 						<label for="photo" id="upload-btn">+Ajouter une photo</label>
 						<input id="photo" type="file" name="photo">
 						<div class="image-details">jpg. png : 4mo max.</div>
 					</div>
-                    <div class="form-group">
-                        <label for="photo-title">Titre</label>
-                        <input type="text" id="photo-title" name="photo-title">
-                    </div>
-                    <div class="form-group">
-                        <label for="photo-category">Catégorie</label>
-                        <select id="photo-category" name="photo-category">
-                            <option value=""></option>
-                            <option value="Objets">Objects</option>
-                            <option value="Appartements">Appartements</option>
-                            <option value="Hotels & restaurants">Hôtels & restaurants</option>
-                        </select>
-                    </div>
-                    <div class="mon-bouton"><button type="submit" id="validationBtn">Valider</button></div>
-                </form>
-            </div>
-        </div>
-    </div>
+					<div class="form-group">
+						<label for="photo-title">Titre</label>
+						<input type="text" id="photo-title" name="photo-title">
+					</div>
+					<div class="form-group">
+						<label for="photo-category">Catégorie</label>
+						<select id="photo-category" name="photo-category">
+							<option value=""></option>
+							<option value="Objets" label="Catégorie d'objets">Objects</option>
+							<option value="Appartements" label="Catégorie d'appartements">Appartements</option>
+							<option value="Hotels & restaurants" label="Catégorie d'hôtels et de restaurants">Hôtels &
+								restaurants</option>
+						</select>
+					</div>
+					<div class="mon-bouton"><button type="submit" id="validationBtn">Valider</button></div>
+				</form>
+			</div>
+		</div>
+	</div>
 
 
 	<header>
@@ -106,16 +107,16 @@
 					décorateur(trice)</p>
 			</article>
 		</section>
+
 		<section id="portfolio">
 
-			<h2>Mes Projets <button class="btn-modal2" id="btn-modal2"><i class="fa fa-regular fa-pen-to-square"></i>
-					Modifier</button></h2>
+			<h2>Mes Projets <button class="btn-modal2" id="btn-modal2"><i
+						class="fa fa-regular fa-pen-to-square"></i>Modifier</button></h2>
+
 			<section class="filtres" id="filtres">
-				
 			</section>
 
 			<div class="gallery">
-
 			</div>
 		</section>
 		<section id="contact">
@@ -133,8 +134,8 @@
 		</section>
 
 
-		<script  src="main.js"></script>
-		<script  src="modal.js"></script>
+		<script src="main.js"></script>
+		<script src="modal.js"></script>
 
 
 

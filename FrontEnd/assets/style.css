@@ -145,6 +145,7 @@ section {
 	cursor: pointer;
 	margin-bottom: 20px;
 }
+
 .btn-modal1 {
 	margin-left: 50px;
 	border: none;
@@ -174,7 +175,6 @@ section {
 /* La modale */
 .modal-container {
 	position: fixed;
-
 	top: 0px;
 	right: 0;
 	width: 100%;
@@ -239,9 +239,10 @@ section {
 	margin: 5px 6px;
 
 }
+
 figcaption {
 	margin-right: 25px;
-  }
+}
 
 
 .fa-trash-can {
@@ -250,7 +251,7 @@ figcaption {
 	background-color: #333333;
 	margin: 10px;
 	border-radius: 4px;
-    padding: 5px;
+	padding: 5px;
 	cursor: pointer;
 	position: absolute;
 }
@@ -291,15 +292,16 @@ figcaption {
 	border: none;
 	cursor: pointer;
 }
+
 .gallery-figure {
 	position: relative;
-  }
-  
-  .gallery-figure i.fa-trash-can {
+}
+
+.gallery-figure i.fa-trash-can {
 	position: absolute;
-	
+
 	right: 1px;
-  }
+}
 
 /*----------------------------------modale2-----------------*/
 /* Style de la page modale */
@@ -311,11 +313,11 @@ figcaption {
 	width: 100%;
 	height: 100%;
 	overflow: auto;
-	background-color: rgba(0,0,0,0.5);
-  }
-  
-  /* Style du contenu de la page modale */
-  .modal-content {
+	background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* Style du contenu de la page modale */
+.modal-content {
 	position: absolute;
 	top: 50%;
 	left: 50%;
@@ -327,30 +329,30 @@ figcaption {
 	max-width: 600px;
 	background: #FFFFFF;
 	border-radius: 10px;
-	
-  }
-  
-  /* Style de l'en-tête de la page modale */
-  .modal-header {
+
+}
+
+/* Style de l'en-tête de la page modale */
+.modal-header {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 	margin-bottom: 20px;
-	
 
-  }
 
-  
-  /* Style du corps de la page modale */
-  .modal-body {
+}
+
+
+/* Style du corps de la page modale */
+.modal-body {
 	display: flex;
 	flex-direction: column;
 	margin: 20px 50px;
-	
-  }
-  
-  /* Style de l'icône et du bouton pour ajouter une photo */
-  .modal-image {
+
+}
+
+/* Style de l'icône et du bouton pour ajouter une photo */
+.modal-image {
 	display: flex;
 	align-items: center;
 	flex-direction: column;
@@ -358,29 +360,22 @@ figcaption {
 	margin-top: 30px;
 	background: #E8F1F7;
 	border-radius: 3px;
-	
-  }
-  
-  .page-title {
+
+}
+
+.page-title {
 	font-family: 'Work Sans', sans-serif;
 	font-weight: 400;
 	font-size: 26px;
 	line-height: 30.5px;
 	text-align: center;
 	margin-bottom: 20px;
-  }
- 
-
- 
-  
+}
 
 
-
-  
-  
-  #upload-btn{
+#upload-btn {
 	background: #CBD6DC;
-	color:#306685;
+	color: #306685;
 	padding: 10px 20px;
 	border: none;
 	border-radius: 50px;
@@ -391,41 +386,41 @@ figcaption {
 	text-align: center;
 	cursor: pointer;
 	margin-bottom: 10px;
-  }
-  
-  /* Style des détails de l'image */
-  .image-details {
+}
+
+/* Style des détails de l'image */
+.image-details {
 	font-size: 14px;
 	margin-left: 10px;
-	color:#444444;
+	color: #444444;
 	margin-bottom: 20px;
-  }
-  
-  /* Style du formulaire pour ajouter une photo */
-  .form-group {
+}
+
+/* Style du formulaire pour ajouter une photo */
+.form-group {
 	margin-bottom: 30px;
-	
-  }
-  
-  
-  .form-group label {
+
+}
+
+
+.form-group label {
 	display: block;
 	margin-bottom: 5px;
-	
-  }
-  
-  .form-group input,
-  .form-group select {
+
+}
+
+.form-group input,
+.form-group select {
 	width: 100%;
 	height: 50px;
 	font-size: 1.2em;
 	border: none;
 	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
-	
-  }
-  
-  /* Style du bouton pour valider le formulaire */
-  button[type="submit"] {
+
+}
+
+/* Style du bouton pour valider le formulaire */
+button[type="submit"] {
 	background: #A7A7A7;
 	color: #FFFFFF;
 	padding: 10px 60px;
@@ -440,55 +435,36 @@ figcaption {
 	line-height: 19px;
 	margin: auto;
 	cursor: pointer;
-	
-	
-  }
-  
-  .mon-bouton {
-	
+
+
+}
+
+.mon-bouton {
+
 	border: none;
 	color: white;
-	
+
 	text-align: center;
 	text-decoration: none;
 	display: inline-block;
 	font-size: 16px;
 	padding-top: 30px;
-	
-	
+
+
 	width: 100%;
 	border-top: #B3B3B3 1px solid;
-	
+
 }
 
 
 #modal-image {
 	width: 100px;
 	height: 100px;
-  }
-  #photo {
+}
+
+#photo {
 	display: none;
-  }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+}
 
 
 body {
@@ -498,6 +474,7 @@ body {
 ol,
 ul {
 	list-style: none;
+	
 }
 
 blockquote,
@@ -569,11 +546,16 @@ nav ul {
 nav li {
 	padding: 0 10px;
 	font-size: 1.2em;
+	
 }
 
 li:hover {
 	color: #B1663C;
 }
+
+li a {
+	text-decoration: none;
+  }
 
 #introduction {
 	display: flex;
